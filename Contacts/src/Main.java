@@ -67,7 +67,10 @@ public class Main {
                     int index = scan.nextInt();
                     newList.deleteFromContactsList(index);
                     break;
-
+                case 5:
+                    System.out.println("Exiting!");
+                    bye = true;
+                    break;
                 default:
                     System.out.println("Unknown Entry ..");
 
