@@ -1,4 +1,6 @@
+
 import java.util.Scanner;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -10,7 +12,7 @@ public class Main {
         Scanner scan = new Scanner(System.in);
 
         do {
-            System.out.println("Welcome to Rakesh's Contact List App\n" +
+            System.out.println("Welcome to DBC's Contact List App\n" +
                     "Press 1 to add a new contact\n" +
                     "Press 2 to view all contacts\n" +
                     "Press 3 to search for a contact\n" +
@@ -47,7 +49,7 @@ public class Main {
                         EmailId = scan.next();
                     } else EmailId = null;
                     System.out.println("\n");
-                    newList.aaInContactList(firstName, lastName, contactNumber, anotherNumber, EmailId);
+                    newList.addInContactsLast(firstName, lastName, contactNumber, anotherNumber, EmailId);
                     break;
 
                 case 2:

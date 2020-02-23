@@ -1,25 +1,42 @@
+
+
+
 public class ContactList {
     private Person head;
-    private int ContactListSize;
+    private int contactLintLength;
 
+    /*
+     *   initialize of instance for contactsList
+     */
     public ContactList() {
         head = null;
-        ContactListSize = 0;
+        contactLintLength = 0;
     }
 
-    public void aaInContactList(String firstName, String lastName, String contactNumber, String anotherContactNumber, String email) {
+    // method to add firstName,lastName,contactNumber,anotherContactNumber,emailAddress and anotherEmailAddress in String form
+    public void addInContactsLast(String firstName, String lastName, String contactNumber, String anotherContactNumber, String emailAddress) {
         Person current = head;
         Person previous = null;
         Person newNode = new Person();
+
+        /*
+         setting the data
+         */
         newNode.setFirstName(firstName);
         newNode.setLastName(lastName);
         newNode.setContactNumber(contactNumber);
         newNode.setAnotherNumber(anotherContactNumber);
-        newNode.setEmail_Address(email);
+        newNode.setEmail_Address(emailAddress);
+
         if (isEmpty()) {
             head = newNode;
+            contactLintLength++;
         } else {
-            for (int i = 0; i < ContactListSize; i++) {
+
+            /*
+             compare firstName of entries for priority by first letter in firstName
+             */
+            for (int i = 0; i < contactLintLength; i++) {
                 String[] ourNames1 = current.getFirstName().split(" ");
                 String[] ourNames2 = newNode.getFirstName().split(" ");
 
@@ -33,7 +50,7 @@ public class ContactList {
                     if (previous == null) {
                         newNode.setNext(current);
                         head = newNode;
-                        ContactListSize++;
+                        contactLintLength++;
                         break;
                     }
                     /*
@@ -42,9 +59,8 @@ public class ContactList {
                      */
                     previous.setNext(newNode);
                     newNode.setNext(current);
-                    ContactListSize++;
+                    contactLintLength++;
                     break;
-
                 } else
                     /*
                      *  if the entry replaces node at the tail,
@@ -53,7 +69,7 @@ public class ContactList {
                     if (current.getNext() == null) {
                         current.setNext(newNode);
                         newNode.setNext(null);
-                        ContactListSize++;
+                        contactLintLength++;
                         break;
                     }
                     previous = current;
@@ -63,8 +79,11 @@ public class ContactList {
         }
     }
 
+    /*
+     *  method to use if the linked list is empty
+     */
     public boolean isEmpty() {
-        return (ContactListSize == 0);
+        return (contactLintLength == 0);
     }
 
     /*
@@ -73,9 +92,9 @@ public class ContactList {
     public void printContactsList() {
         Person tempNode = head;
         if (head == null) {
-            System.out.println("The list is empty!");
+            System.out.println("OPPss!!  The list is empty!");
         } else {
-            for (int i = 0; i < ContactListSize; i++) {
+            for (int i = 0; i < contactLintLength; i++) {
                 System.out.print("-------- * -------- * -------- * --------");
                 //System.out.print("Contact No. " + (i + 1));
                 System.out.println(tempNode);
@@ -94,9 +113,9 @@ public class ContactList {
         Person current = head;
         boolean empty = true;
         if (isEmpty()) {
-            System.out.println(" The list is empty! ");
+            System.out.println("OPPss!!  The list is empty!");
         } else {
-            for (int i = 0; i < ContactListSize; i++) {
+            for (int i = 0; i < contactLintLength; i++) {
                 if (current.getFirstName().toLowerCase().contains(firstName.toLowerCase())) {
                     System.out.println((i + 1) + " match found!");
                     System.out.print("-------- * -------- * -------- * --------");
@@ -124,7 +143,7 @@ public class ContactList {
     public void displayContactsName() {
         Person current = head;
         System.out.println("Here are all your contacts:");
-        for (int i = 0; i < ContactListSize; i++) {
+        for (int i = 0; i < contactLintLength; i++) {
             System.out.println((i + 1) + ". " + current.getFirstName() + " " + current.getLastName());
             current = current.getNext();
         }
@@ -135,23 +154,23 @@ public class ContactList {
         Person previous = null;
         boolean empty = true;
         if (isEmpty()) {
-            System.out.println("The list is empty!");
+            System.out.println("***************************************\n|    OPPss!!  The list is empty!      |\n***************************************\n");
         } else {
-            for (int i = 0; i < ContactListSize; i++) {
+            for (int i = 0; i < contactLintLength; i++) {
                 if ((index - 1) == i) {
                     if (previous == null) {
                         head = head.getNext();
-                        ContactListSize--;
+                        contactLintLength--;
                         empty = false;
                         break;
                     } else if (current.getNext() == null) {
                         previous.setNext(null);
-                        ContactListSize--;
+                        contactLintLength--;
                         empty = false;
                         break;
                     } else {
                         previous.setNext(current.getNext());
-                        ContactListSize--;
+                        contactLintLength--;
                         empty = false;
                         break;
                     }
@@ -171,4 +190,3 @@ public class ContactList {
         }
     }
 }
-
