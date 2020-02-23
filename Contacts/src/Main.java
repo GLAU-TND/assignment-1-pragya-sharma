@@ -23,6 +23,35 @@ public class Main {
             }
 
             switch (userPressed) {
+                case 1:
+                    System.out.println("You have chosen to add a new contact: \n" +
+                            "Please enter the name of the Person");
+                    String firstName, lastName, contactNumber, anotherNumber, EmailId;
+
+                    System.out.print("First Name: ");
+                    firstName = scan.next();
+                    System.out.print("Last Name: ");
+                    lastName = scan.next();
+                    System.out.print("Contact Number: ");
+                    contactNumber = scan.next();
+                    System.out.print("Would you like to add another contact number? (y/n): ");
+                    option = scan.next();
+                    if (option.equalsIgnoreCase("y")) {
+                        System.out.print("Contact Number: ");
+                        anotherNumber = scan.next();
+                    } else anotherNumber = null;
+                    System.out.print("Would you like to add email address? (y/n): ");
+                    option = scan.next();
+                    if (option.equalsIgnoreCase("y")) {
+                        System.out.print("Email Address: ");
+                        EmailId = scan.next();
+                    } else EmailId = null;
+                    System.out.println("\n");
+                    newList.aaInContactList(firstName, lastName, contactNumber, anotherNumber, EmailId);
+                    break;
+
+                default:
+                    System.out.println("Unknown Entry ..");
 
             }
         } while (!bye);
