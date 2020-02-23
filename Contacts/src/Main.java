@@ -50,6 +50,11 @@ public class Main {
                     newList.aaInContactList(firstName, lastName, contactNumber, anotherNumber, EmailId);
                     break;
 
+                case 2:
+                    System.out.println("---Here are all your contacts---");
+                    newList.printContactsList();
+                    break;
+
                 default:
                     System.out.println("Unknown Entry ..");
 
