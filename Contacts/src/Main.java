@@ -55,8 +55,15 @@ public class Main {
                     newList.printContactsList();
                     break;
 
+                case 3:
+                    System.out.println("You could search for a contact from their first names:");
+                    String sFirstName = scan.next();
+                    newList.searchByFirstName(sFirstName);
+                    break;
+
                 default:
                     System.out.println("Unknown Entry ..");
+
 
             }
         } while (!bye);
