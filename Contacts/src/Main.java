@@ -61,6 +61,13 @@ public class Main {
                     newList.searchByFirstName(sFirstName);
                     break;
 
+                case 4:
+                    newList.displayContactsName();
+                    System.out.print("Press the number against the contact to delete it: ");
+                    int index = scan.nextInt();
+                    newList.deleteFromContactsList(index);
+                    break;
+
                 default:
                     System.out.println("Unknown Entry ..");
 
